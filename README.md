@@ -23,8 +23,14 @@ A **feature-rich Kanban Board** built using **HTML**, **CSS**, and **vanilla Jav
 ## 📸 Preview![Screenshot 2025-07-03 203804](https://github.com/user-attachments/assets/c9701d8b-73d5-48b6-81b8-0b7f50b416b6)
 
 
+![Screenshot 2025-07-03 203756](https://github.com/user-attachments/assets/d6f8afd7-76e6-4a51-b800-008ca4aca4cf)
+
+![Screenshot 2025-07-03 204004](https://github.com/user-attachments/assets/71a52d71-49da-4fac-84ea-67c2c5cf1e3f)
+
+![Screenshot 2025-07-03 204032](https://github.com/user-attachments/assets/d503dc95-f2ed-4300-a3d2-fca2996de6ed)
 
 ---
+
 
 ## 📁 File Structure
 kanban-board/
