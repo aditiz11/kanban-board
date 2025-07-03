@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kanban Board - Subtasks Support</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body onload="loadTasks()">
+  <h1>Kanban Board</h1>
+  <div style="text-align: center">
+    <button onclick="toggleForm()">+ New Task</button>
+  </div>
+  
+
+  <!-- Task Form Modal -->
+  <div class="modal" id="taskModal">
+    <div class="modal-content">
+      <span class="close" onclick="toggleForm()">&times;</span>
+      <h3>Create New Task</h3>
+      <input type="text" id="taskName" placeholder="Task Name" required />
+      <input type="date" id="dueDate" required />
+      <select id="priority">
+        <option value="Low">Low</option>
+        <option value="Medium">Medium</option>
+        <option value="High">High</option>
+      </select>
+      <select id="column">
+        <option value="todo">To Do</option>
+        <option value="inprogress">In Progress</option>
+        <option value="done">Done</option>
+      </select>
+      <input type="text" id="taskTags" placeholder="Tags (comma-separated)" />
+      <label for="taskDescription">Description:</label>
+      <textarea id="taskDescription" rows="3" placeholder="Enter task description"></textarea>
+      <textarea id="taskSubtasks" placeholder="Subtasks (one per line)"></textarea>
+      <button onclick="addTask()">Add Task</button>
+    </div>
+  </div>
+
+  <!-- Edit Task Modal -->
+  <div class="modal" id="editModal">
+    <div class="modal-content">
+      <span class="close" onclick="toggleEditForm()">&times;</span>
+      <h3>Edit Task</h3>
+      <input type="text" id="editTaskName" required />
+      <input type="date" id="editDueDate" required />
+      <select id="editPriority">
+        <option value="Low">Low</option>
+        <option value="Medium">Medium</option>
+        <option value="High">High</option>
+      </select>
+      <select id="editColumn">
+        <option value="todo">To Do</option>
+        <option value="inprogress">In Progress</option>
+        <option value="done">Done</option>
+      </select>
+      <input type="text" id="editTaskTags" placeholder="Tags (comma-separated)" />
+      <label for="editTaskDescription">Description:</label>
+      <textarea id="editTaskDescription" rows="3" placeholder="Edit task description"></textarea>
+      <textarea id="editTaskSubtasks" placeholder="Subtasks (one per line)"></textarea>
+      <button onclick="saveEditedTask()">Save Changes</button>
+    </div>
+  </div>
+
+  <!-- Kanban Columns -->
+  <div class="kanban">
+    
+    <div class="column" id="todo" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <h2>To Do</h2>
+    </div>
+    <div class="column" id="inprogress" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <h2>In Progress</h2>
+    </div>
+    <div class="column" id="done" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <h2>Done</h2>
+    </div>
+  </div>
+  
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,412 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+  margin: 0;
+  padding: 20px;
+}
+h1 {
+  text-align: center;
+}
+button {
+  padding: 8px 16px;
+  margin: 10px;
+  background: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+.kanban {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+.column {
+  background: #ffffff;
+  padding: 10px;
+  border-radius: 5px;
+  width: 30%;
+  min-height: 300px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+.column h2 {
+  text-align: center;
+}
+.task {
+  background: #fefefe;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: grab;
+}
+.task p {
+  margin: 4px 0;
+}
+
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+}
+.modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%;
+  border-radius: 8px;
+}
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.close:hover {
+  color: black;
+}
+.modal-content input,
+.modal-content select {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  margin: 10px 0;
+}
+
+.overdue {
+  border-left: 5px solid red;
+  background-color: #ffe5e5;
+}
+.task.done-task {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+.task.overdue {
+  background-color: #ffe5e5;
+  border-left: 4px solid red;
+}
+.priority-label {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.8em;
+  font-weight: bold;
+}
+.priority-low {
+  background-color: #d4edda;
+  color: #155724;
+}
+.priority-medium {
+  background-color: #fff3cd;
+  color: #856404;
+}
+.priority-high {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+.tag {
+  display: inline-block;
+  background-color: #d1ecf1;
+  color: #0c5460;
+  padding: 2px 6px;
+  margin: 2px;
+  border-radius: 4px;
+  font-size: 0.75em;
+}
+.subtask-list {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 8px;
+}
+
+.subtask-list li {
+  margin: 4px 0;
+  font-size: 0.9em;
+}
+
+.subtask-list input[type="checkbox"] {
+  margin-right: 6px;
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.subtask-list li label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.subtask-list li input:checked + span {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+.task .subtask-list {
+  background-color: #e3f7e7; /* soft mint green */
+  border: 1px solid #c5e2c9;
+  border-radius: 4px;
+  padding: 6px 10px;
+  margin-top: 10px;
+}
+
+.subtasks-all-done {
+  border: 2px dashed orange;
+}
+.maybe-done {
+  border: 2px dashed orange;
+  background-color: #fff9e6;
+}
+/* 🔄 Dark Mode Styles */
+body.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+body.dark-mode .column {
+  background-color: #1f1f1f;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .task {
+  background-color: #2a2a2a;
+  border-color: #444;
+  color: #f0f0f0;
+}
+
+body.dark-mode .task.done-task {
+  opacity: 0.5;
+}
+
+body.dark-mode .task.overdue {
+  background-color: #3a1f1f;
+  border-left: 4px solid #ff4c4c;
+}
+
+body.dark-mode .maybe-done {
+  background-color: #3a341f;
+  border: 2px dashed #ffc107;
+}
+
+body.dark-mode .modal-content {
+  background-color: #262626;
+  color: #f0f0f0;
+  border: 1px solid #555;
+}
+
+body.dark-mode input,
+body.dark-mode select,
+body.dark-mode textarea {
+  background-color: #333;
+  color: #f0f0f0;
+  border: 1px solid #666;
+}
+
+body.dark-mode button {
+  background-color: #0066cc;
+  color: white;
+  border: none;
+}
+
+body.dark-mode .tag {
+  background-color: #2b5d77;
+  color: #e0f7ff;
+}
+
+body.dark-mode .priority-low {
+  background-color: #375c3f;
+  color: #b6fcb6;
+}
+
+body.dark-mode .priority-medium {
+  background-color: #665c2e;
+  color: #ffe08a;
+}
+
+body.dark-mode .priority-high {
+  background-color: #5c2e2e;
+  color: #ff8a8a;
+}
+
+body.dark-mode .kanban {
+  border-top: 1px solid #333;
+}
+/* 🌙 Improve subtask visibility in dark mode */
+body.dark-mode .task .subtask-list {
+  background-color: #2a2a2a;
+  border: 1px solid #444;
+  color: #f0f0f0;
+}
+
+body.dark-mode .subtask-list label {
+  color: #f0f0f0;
+}
+
+body.dark-mode .subtask-list input[type="checkbox"] {
+  accent-color: #4da3ff;
+}
+.inprogress-highlight {
+  border: 2px dashed #a6f0a6;
+  background-color: #f0fff0;
+}
+/* Dark mode */
+body.dark-mode .inprogress-highlight {
+  border: 2px dashed #a6f0a6;
+  background-color: #294032; /* very dark green tint */
+  color: #dfffe0;
+}
+.todo-highlight {
+  border: 2px dashed #d6c847; /* muted gold-like yellow */
+  background-color: #fdf8cc;  /* softer, pleasant pale yellow */
+}
+
+body.dark-mode .todo-highlight {
+  border: 2px dashed #b1a438; /* subtle contrast in dark mode */
+  background-color: #3a3600;  /* gentle dark yellow-brown tone */
+}
+
+.done-highlight {
+  border: 2px dashed darkred;        /* dark red dashed border */
+  background-color: #ffe6e6;         /* very pale red/pinkish background */
+}
+
+body.dark-mode .done-highlight {
+  border: 2px dashed #aa0000;        /* deep red border for dark mode */
+  background-color: #331111;         /* muted reddish background for dark mode */
+}
+.column select {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  font-size: 18px;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: inherit;
+  text-align: center;
+  font-family: "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+/* Visually simulate the gear icon */
+.column select option {
+  color: black;
+  background: white;
+}
+
+.column select:hover {
+  background: transparent; /* no black or grey on hover */
+}
+
+/* Dark mode support */
+.dark-mode .column select option {
+  background-color: #222;
+  color: #fff;
+}
+
+textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 4px;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+/* 🌟 Beautified Task Modal Form */
+.modal-content {
+  background-color: #ffffff;
+  padding: 24px;
+  border-radius: 12px;
+  border: none;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  max-width: 600px;
+  transition: all 0.3s ease-in-out;
+}
+
+.modal-content h2 {
+  margin-top: 0;
+  text-align: center;
+  font-size: 24px;
+  color: #333;
+  border-bottom: 2px solid #007bff;
+  padding-bottom: 10px;
+}
+
+.modal-content input,
+.modal-content select,
+.modal-content textarea {
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 10px 12px;
+  margin: 12px 0;
+  font-size: 16px;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+
+.modal-content input:focus,
+.modal-content select:focus,
+.modal-content textarea:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.modal-content label {
+  font-weight: bold;
+  margin-top: 10px;
+  display: block;
+  color: #444;
+}
+
+.modal-content button {
+  width: auto;
+  padding: 10px 20px;
+  margin-top: 20px;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.modal-content button:hover {
+  background-color: #0056b3;
+}
+
+/* 🌙 Dark Mode Enhancements */
+body.dark-mode .modal-content {
+  background-color: #1f1f1f;
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .modal-content h2 {
+  color: #f0f0f0;
+  border-color: #4da3ff;
+}
+
+body.dark-mode .modal-content label {
+  color: #ccc;
+}
+
+body.dark-mode .modal-content input,
+body.dark-mode .modal-content select,
+body.dark-mode .modal-content textarea {
+  border: 1px solid #444;
+}
+
+body.dark-mode .modal-content input:focus,
+body.dark-mode .modal-content select:focus,
+body.dark-mode .modal-content textarea:focus {
+  border-color: #4da3ff;
+}
+
