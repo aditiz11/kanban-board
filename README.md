@@ -49,13 +49,12 @@ cd kanban-board
 
 open index.html  # macOS
 start index.html # Windows
+```
+## 📌 Author
 
-📌 Author
-Aditi Yerra
-
-💼 LinkedIn
-
-🖥️ GitHub
+**Aditi**
+- 💼 [LinkedIn](https://www.linkedin.com/in/aditiyerra)  
+- 🖥️ [GitHub](https://github.com/aditiz11)
 
 🧠 Inspiration
 This project was built to explore client-side state management without frameworks, improve task flow handling, and implement an elegant UI with real-world utility.
