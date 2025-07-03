@@ -43,7 +43,6 @@ button {
   margin: 4px 0;
 }
 
-/* Modal Styles */
 .modal {
   display: none;
   position: fixed;
@@ -237,7 +236,7 @@ body.dark-mode .priority-high {
 body.dark-mode .kanban {
   border-top: 1px solid #333;
 }
-/* 🌙 Improve subtask visibility in dark mode */
+
 body.dark-mode .task .subtask-list {
   background-color: #2a2a2a;
   border: 1px solid #444;
@@ -258,27 +257,27 @@ body.dark-mode .subtask-list input[type="checkbox"] {
 /* Dark mode */
 body.dark-mode .inprogress-highlight {
   border: 2px dashed #a6f0a6;
-  background-color: #294032; /* very dark green tint */
+  background-color: #294032; 
   color: #dfffe0;
 }
 .todo-highlight {
-  border: 2px dashed #d6c847; /* muted gold-like yellow */
-  background-color: #fdf8cc;  /* softer, pleasant pale yellow */
+  border: 2px dashed #d6c847;
+  background-color: #fdf8cc;  
 }
 
 body.dark-mode .todo-highlight {
-  border: 2px dashed #b1a438; /* subtle contrast in dark mode */
-  background-color: #3a3600;  /* gentle dark yellow-brown tone */
+  border: 2px dashed #b1a438;
+  background-color: #3a3600;  
 }
 
 .done-highlight {
-  border: 2px dashed darkred;        /* dark red dashed border */
-  background-color: #ffe6e6;         /* very pale red/pinkish background */
+  border: 2px dashed darkred;  
+  background-color: #ffe6e6;    
 }
 
 body.dark-mode .done-highlight {
-  border: 2px dashed #aa0000;        /* deep red border for dark mode */
-  background-color: #331111;         /* muted reddish background for dark mode */
+  border: 2px dashed #aa0000;     
+  background-color: #331111;        
 }
 .column select {
   position: absolute;
@@ -300,17 +299,17 @@ body.dark-mode .done-highlight {
   z-index: 1000;
 }
 
-/* Visually simulate the gear icon */
+
 .column select option {
   color: black;
   background: white;
 }
 
 .column select:hover {
-  background: transparent; /* no black or grey on hover */
+  background: transparent; 
 }
 
-/* Dark mode support */
+
 .dark-mode .column select option {
   background-color: #222;
   color: #fff;
@@ -324,7 +323,7 @@ textarea {
   font-family: inherit;
 }
 
-/* 🌟 Beautified Task Modal Form */
+
 .modal-content {
   background-color: #ffffff;
   padding: 24px;
@@ -383,7 +382,7 @@ textarea {
   background-color: #0056b3;
 }
 
-/* 🌙 Dark Mode Enhancements */
+
 body.dark-mode .modal-content {
   background-color: #1f1f1f;
   box-shadow: 0 8px 20px rgba(255, 255, 255, 0.1);
