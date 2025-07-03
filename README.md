@@ -52,7 +52,6 @@ start index.html # Windows
 ```
 ## 📌 Author
 
-**Aditi**
 - 💼 [LinkedIn](https://www.linkedin.com/in/aditiyerra11)  
 - 🖥️ [GitHub](https://github.com/aditiz11)
 
