@@ -29,8 +29,7 @@ A **feature-rich Kanban Board** built using **HTML**, **CSS**, and **vanilla Jav
 
 ![Screenshot 2025-07-03 204032](https://github.com/user-attachments/assets/d503dc95-f2ed-4300-a3d2-fca2996de6ed)
 
----
-
+```
 
 ## 📁 File Structure
 kanban-board/
@@ -38,7 +37,7 @@ kanban-board/
 ├── style.css # Styling for light & dark mode
 └── script.js # All task logic & interactivity
 
----
+```
 
 ## 🚀 Getting Started
 
